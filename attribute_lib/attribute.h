@@ -12,8 +12,8 @@ typedef struct attribute attribute_s;
 
 /**
  * @brief Allocate a new empty attribute struct
- * 
- * @return attribute_s* 
+ *
+ * @return attribute_s*
  */
 attribute_s *newAttribute();
 #endif

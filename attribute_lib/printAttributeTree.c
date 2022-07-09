@@ -13,7 +13,14 @@ void printAttributeTree(attribute_s *root)
   }
   
   // Print the value
-  printf("%s", (char *)root->type);
+  if(root->constraint != (long long) NULL) {
+    // Print with constraint
+    printf("%s=%s", (char *)root->type, (char*) root->constraint);
+  } else {
+    // Print without constraint
+    printf("%s", (char *)root->type);
+  }
+  
 
   // Recursively print the sub-attributes
   if (root->sub_attribute != NULL)

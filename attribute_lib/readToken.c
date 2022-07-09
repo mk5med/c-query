@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include "attribute_lib/attribute.h"
 #include "attribute_lib/attribute_parse.h"
+#include "string_extensions/string_extensions.h"
 
 /**
  * @brief Save a string into an attribute node
@@ -13,7 +14,11 @@
  */
 void saveNode(attribute_s *node, char *strPtr)
 {
-  node->type = (long long)strPtr;
+  char *key;
+  char *value;
+  str_split(strPtr, "=", &key, &value);
+  node->type = (long long)key;
+  node->constraint = (long long)value;
 }
 
 /**
