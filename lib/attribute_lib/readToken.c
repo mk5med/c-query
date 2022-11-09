@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "attribute_lib/attribute.h"
-#include "attribute_lib/attribute_parse.h"
-#include "string_extensions/string_extensions.h"
+#include "lib/attribute_lib/attribute.h"
+#include "lib/attribute_lib/attribute_parse.h"
+#include "lib/string_extensions/string_extensions.h"
 
 /**
  * @brief Save a string into an attribute node

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "attribute_lib/attribute.h"
-#include "attribute_lib/attribute_parse.h"
+#include "lib/attribute_lib/attribute.h"
+#include "lib/attribute_lib/attribute_parse.h"
 
 char *createSubAttributeChain(attribute_s *nodeRef, char *charPtr)
 {
