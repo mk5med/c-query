@@ -6,8 +6,7 @@ DEPS = main.h \
 			lib/attribute_lib/attribute_parse.h lib/attribute_lib/attribute_print.h \
 			lib/string_extensions/string_extensions.h
 
-OBJ = $(ODIR)/main.o \
-			$(ODIR)/lib/printAttributeTree.o $(ODIR)/lib/attribute.o \
+OBJ = $(ODIR)/lib/printAttributeTree.o $(ODIR)/lib/attribute.o \
 			$(ODIR)/lib/createSubAttributeChain.o $(ODIR)/lib/readToken.o \
 			$(ODIR)/lib/string_split.o
 
@@ -22,13 +21,17 @@ $(ODIR)/lib/%.o: lib/attribute_lib/%.c $(DEPS)
 $(ODIR)/lib/%.o: lib/string_extensions/%.c $(DEPS)
 	$(CC) -g -c -o $@ $< $(CFLAGS)
 
-$(TARGET): $(OBJ)
+$(TARGET): $(ODIR)/main.o $(OBJ)
 	$(CC) -g -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
 
+library:
+	make
+	ar rcs "$(TARGET).lib" $(OBJ)
+
 clean:
-	rm -r $(ODIR)
+	rm -rf $(ODIR)
 	# You can now run 'make init'
 
 init:
